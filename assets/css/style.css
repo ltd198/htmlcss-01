@@ -5,6 +5,10 @@
 :root {
   --primary-color: #0f1b4c;
 }
+html,
+body {
+  scroll-behavior: smooth;
+}
 html {
   font-size: 62.5%;
 }
@@ -38,16 +42,26 @@ a {
   opacity: 0.9;
 }
 /* Header */
-.header {
-  position: relative;
+.fixed-header {
   background-color: #e6f0ff;
-  height: 100vh;
+  padding: 26px;
+  position: sticky;
+  top: -26px;
+  z-index: 1;
+}
+.hero-wrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #e6f0ff;
+  height: calc(100vh - 90px);
 }
 
 .navbar {
   display: flex;
   align-items: center;
-  padding-top: 38px;
+  padding: 12px 0;
 }
 
 .navbar ul {
@@ -77,27 +91,24 @@ a {
   margin-left: 18px;
   border-radius: 8px;
 }
-.hero {
-  margin-top: 130px;
-}
-.hero .info {
+.hero-wrap .info {
   width: 51%;
 }
-.hero .sub-title {
-  color: #687691;
+.hero-wrap .sub-title {
+  color: #687690;
   font-size: 1.8rem;
   line-height: 1.5rem;
   font-weight: 500;
   letter-spacing: 0.01em;
 }
-.hero .title {
+.hero-wrap .title {
   margin-top: 8px;
   color: #000336;
   font-size: 6.4rem;
   font-weight: 700;
   line-height: 1.19;
 }
-.hero .desc {
+.hero-wrap .desc {
   margin-top: 30px;
   color: #5a6473;
   font-size: 1.8rem;
@@ -136,9 +147,21 @@ a {
   margin-top: 23px;
 }
 .clients .images {
-  margin-top: 40px;
+  margin-top: 70px;
+  align-items: center;
   display: flex;
   justify-content: space-between;
+}
+.clients .images a {
+  display: flex;
+  align-items: center;
+  height: 90px;
+  padding: 0 42px;
+
+  border-radius: 12px;
+}
+.clients .images a:hover {
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
 }
 /* Guides */
 .guides {
@@ -505,6 +528,10 @@ a {
   width: 28px;
   height: 28px;
   border-radius: 3px;
+  background: #f9f9f9;
+}
+.footer .social-link + .social-link {
+  margin-left: 16px;
 }
 .footer .social-link:hover {
   background-color: #ebebeb;
